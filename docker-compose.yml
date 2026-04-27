@@ -1,0 +1,10 @@
+services:
+  db:
+    image: ankane/pgvector
+    container_name: pgvector_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: ragdb
+    ports:
+      - "5432:5432"
