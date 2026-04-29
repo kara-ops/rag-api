@@ -6,7 +6,7 @@ engine = create_engine(settings.DATABASE_URL)
 
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
 
-class Base(DeclaraticeBase):
+class Base(DeclarativeBase):
     pass
 
 def get_db():
