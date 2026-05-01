@@ -1,4 +1,5 @@
 from app.services.chunker import chunk_text
+from app.services.embeddings import embed_text
 
 text = """ The internet, once a niche network connecting a handful of research institutions, has become the backbone of modern civilization. Its journey from the ARPANET of the late 1960s to today’s global digital ecosystem illustrates how technology can reshape economies, cultures, and human interaction. In its earliest phase, the internet was primarily a tool for academics and government researchers. Communication was text-based, slow, and limited to a small community. Yet even then, the seeds of transformation were planted: the idea that information could be shared instantly across vast distances.
 By the 1990s, the World Wide Web introduced graphical interfaces, hyperlinks, and browsers that made the internet accessible to ordinary people. This democratization of information changed education, commerce, and entertainment. Suddenly, knowledge that was once locked in libraries or specialized institutions became available to anyone with a connection. Search engines like Yahoo and later Google organized this vast ocean of data, making it navigable and useful. The rise of e-commerce platforms such as Amazon and eBay demonstrated that the internet was not just about information—it was also about transactions, trust, and convenience.
@@ -11,7 +12,14 @@ The impact of the internet on society is profound. Economically, it has created 
 
 chunks = chunk_text(text)
 
-for i, chunk in enumerate(chunks):
-    print(f"\n-- Chunk {i+1} ---")
-    print(f"Word count: {len(chunk.split())}")
-    print(chunk)
+#print chunks
+# for i, chunk in enumerate(chunks):
+#     print(f"\n-- Chunk {i+1} ---")
+#     print(f"Word count: {len(chunk.split())}")
+#     print(chunk)
+
+vectors = embed_text(chunks)
+
+print(f"Number of chunks:{len(chunks)}")
+print(f"Number of vectors: {len(vectors)}")
+print(f"Vector size:{len(vectors[0])}")
