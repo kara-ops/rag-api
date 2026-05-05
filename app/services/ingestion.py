@@ -4,15 +4,15 @@ from app.services.embeddings import embed_text
 from app.services.storage import save_documents
 from app.database import get_db
 import os
+from sqlalchemy.orm import Session
 
 
 
-def ingest_pdf(file_path:str):
+def ingest_pdf(file_path:str,db:Session):
     #vars
     file_name = os.path.basename(file_path)
     doc = pdf.open(file_path)
     text = ""
-    db = next(get_db())
     
     #fetching text from pdf
     for page in doc:
