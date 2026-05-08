@@ -4,6 +4,7 @@ from functools import lru_cache
 class Settings(BaseSettings):
     DATABASE_URL : str
     GEMINI_API_KEY : str
+    GROQ_API_KEY : str
 
 
     class Config:
