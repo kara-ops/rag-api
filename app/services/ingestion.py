@@ -2,7 +2,7 @@ import pymupdf as pdf
 from app.services.chunker import chunk_text
 from app.services.embeddings import embed_text
 from app.services.storage import save_documents
-from app.database import get_db
+from app.core.database import get_db
 import os
 from sqlalchemy.orm import Session
 

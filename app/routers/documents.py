@@ -1,6 +1,6 @@
 from fastapi import APIRouter,Depends,UploadFile
 from sqlalchemy.orm import Session
-from app.database import get_db
+from app.core.database import get_db
 import os
 import shutil
 from app.services.ingestion import ingest_pdf

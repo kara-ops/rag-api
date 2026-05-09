@@ -39,8 +39,8 @@ import sys
 import os 
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from app.database import Base
-from app import models
+from app.core.database import Base
+from app.models import service
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,

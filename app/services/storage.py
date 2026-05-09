@@ -1,4 +1,4 @@
-from app.models import Document,Chunk
+from app.models.service import Document,Chunk
 
 def save_documents(filename:str,content:str,chunks:list[str],vector:list[list[float]], db)->dict:
     save_docs = Document(

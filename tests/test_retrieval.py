@@ -1,5 +1,5 @@
 from app.services.retrieval import retrieve_chunks
-from app.database import get_db
+from app.core.database import get_db
 
 db = next(get_db())
 
