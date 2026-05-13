@@ -40,7 +40,7 @@ import os
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from app.core.database import Base
-from app.models import service
+from app.models.service import Document,Chunk,User
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,

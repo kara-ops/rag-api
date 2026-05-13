@@ -13,7 +13,7 @@ class Document(Base):
     created_at = Column(DateTime, server_default=func.now())
     
     user = relationship("User", back_populates="documents")
-    chunks = relationship("Chunk", back_populates="documents", cascade="all, delete")
+    chunks = relationship("Chunk", back_populates="document", cascade="all, delete")
 
 class Chunk(Base):
     __tablename__ = "chunks"
@@ -24,7 +24,7 @@ class Chunk(Base):
     chunk_index = Column(Integer, nullable=False)
     created_at = Column(DateTime, server_default=func.now())
 
-    documents = relationship("Document", back_populates="chunks")
+    document = relationship("Document", back_populates="chunks")
 
 
 class User(Base):
@@ -34,6 +34,6 @@ class User(Base):
     hashed_password = Column(String,nullable=False)
     created_at = Column(DateTime,server_default=func.now())
     
-    document = relationship("Document", back_populates="user", cascade="all, delete")
+    documents = relationship("Document", back_populates="user", cascade="all, delete")
 
 

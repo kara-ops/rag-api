@@ -2,7 +2,7 @@ from fastapi import APIRouter,Depends,HTTPException
 from sqlalchemy.orm import Session
 from app.services.retrieval import retrieve_chunks
 from app.services.llm_ans import generate_ans
-from app.schemas.schemas import QueryRequest
+from app.schemas.query_schema import QueryRequest
 from app.core.database import get_db
 
 router = APIRouter(prefix="/rag")
