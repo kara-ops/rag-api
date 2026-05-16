@@ -1,9 +1,10 @@
 from app.models.service import Document,Chunk
 
-def save_documents(filename:str,content:str,chunks:list[str],vector:list[list[float]], db)->dict:
+def save_documents(filename:str,content:str,chunks:list[str],vector:list[list[float]],db,user)->dict:
     save_docs = Document(
         filename=filename,
-        content=content
+        content=content,
+        user_id=user
     )
     db.add(save_docs)
     db.commit()

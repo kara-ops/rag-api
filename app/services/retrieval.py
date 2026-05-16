@@ -5,7 +5,7 @@ from fastapi import HTTPException
 
 
 
-def retrieve_chunks(doc_id:int,ques:str,db,k:int=5)->list[str]:
+def retrieve_chunks(user_id,doc_id:int,ques:str,db,k:int=5)->list[str]:
     embed_ques = embed_text([ques])[0]
 
     query = text("SELECT id,content FROM chunks WHERE document_id = :doc_id ORDER BY embedding <=> CAST(:vector AS vector) LIMIT :k")

@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 
 
 
-def ingest_pdf(file_path:str,db:Session):
+def ingest_pdf(file_path:str,db:Session,user_id):
     #vars
     file_name = os.path.basename(file_path)
     doc = pdf.open(file_path)
@@ -26,7 +26,7 @@ def ingest_pdf(file_path:str,db:Session):
     embedding = embed_text(chunks)#getting vectors
 
     
-    save_document = save_documents(file_name,text,chunks,embedding,db)#saving all in db
+    save_document = save_documents(file_name,text,chunks,embedding,db,user_id)#saving all in db
     
 
     return save_document
